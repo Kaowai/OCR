@@ -15,7 +15,7 @@ export default function Sidebar() {
       <div className="text-xl font-bold mb-6">
         <Link href={"/"} className="flex gap-2 items-center">
           <Image width={36} height={36} alt="icon" src={"/icons/icon.svg"} />
-          <div className="">AkaOCR</div>
+          <div className="">REDI-MIT</div>
         </Link>
       </div>
 

@@ -3,6 +3,7 @@
 import OCRContainer from "@/components/Shared/OCRContainer";
 import OCRDialog from "@/components/Shared/OCRDialog";
 import OCRHeaderCellTable from "@/components/Shared/OCRHeaderCellTable";
+import OCRProjectDetail from "@/components/Shared/OCRProjectDetail";
 import OCRTable from "@/components/Shared/OCRTable";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,54 +39,7 @@ const ProjectDetail = () => {
         ),
         renderHeader: (label) => <OCRHeaderCellTable label={label} />,
       },
-      {
-        label: "Confidence Score",
-        renderRow: (data) => (
-          <div className="text-sm py-2 flex items-center gap-4 text-start text-neutral-600">
-            {data?.confidenceScore !== undefined ? data?.confidenceScore : "--"}
-          </div>
-        ),
-        renderHeader: (label) => <OCRHeaderCellTable label={label} />,
-      },
-      {
-        label: "Status",
-        renderRow: (data) => (
-          <div className="text-sm py-2 flex items-center gap-4 text-start font-medium text-neutral-600">
-            {data.status === "processing" ? (
-              <div className="px-2 py-1 flex gap-2 items-center">
-                <Image
-                  src={"/icons/process.svg"}
-                  height={16}
-                  width={16}
-                  alt="eye-icon"
-                />
-                Processing
-              </div>
-            ) : data.status === "failure" ? (
-              <div className="px-2 py-1 flex gap-2 items-center">
-                <Image
-                  src={"/icons/fail.svg"}
-                  height={16}
-                  width={16}
-                  alt="eye-icon"
-                />
-                Failure
-              </div>
-            ) : (
-              <div className="px-2 py-1 flex gap-2 items-center">
-                <Image
-                  src={"/icons/wait.svg"}
-                  height={16}
-                  width={16}
-                  alt="eye-icon"
-                />
-                Waiting
-              </div>
-            )}
-          </div>
-        ),
-        renderHeader: (label) => <OCRHeaderCellTable label={label} />,
-      },
+
       {
         label: "Upload At",
         renderRow: (data) => (
@@ -104,18 +58,66 @@ const ProjectDetail = () => {
         ),
         renderHeader: (label) => <OCRHeaderCellTable label={label} />,
       },
-
+      {
+        label: "Status",
+        renderRow: (data) => (
+          <div className="text-sm py-2 flex items-center gap-4 text-start font-medium text-neutral-600">
+            {data.status === "processing" ? (
+              <div className="px-2 py-1 flex gap-2 bg-amber-50 border-amber-300 text-amber-400 border rounded-lg items-center">
+                <Image
+                  src={"/icons/process.svg"}
+                  height={16}
+                  width={16}
+                  alt="eye-icon"
+                />
+                Processing
+              </div>
+            ) : data.status === "failure" ? (
+              <div className="px-2 py-1 flex gap-2 items-center bg-red-50 border border-red-500 rounded-lg text-red-500">
+                <Image
+                  src={"/icons/fail.svg"}
+                  height={16}
+                  width={16}
+                  alt="eye-icon"
+                />
+                Failure
+              </div>
+            ) : (
+              <div className="px-2 py-1 flex gap-2 items-center bg-green-50 border rounded-lg border-green-500 text-green-500">
+                <Image
+                  src={"/icons/success.svg"}
+                  height={16}
+                  width={16}
+                  alt="eye-icon"
+                />
+                Successfull
+              </div>
+            )}
+          </div>
+        ),
+        renderHeader: (label) => <OCRHeaderCellTable label={label} />,
+      },
       {
         label: "Actions",
         renderRow: () => (
           <div className="text-sm py-2 flex items-center gap-2 text-start font-medium text-neutral-500">
-            <Image
-              src={"/icons/eye.svg"}
-              height={16}
-              width={16}
-              alt="eye-icon"
-              className="cursor-pointer"
-            />
+            <OCRDialog
+              classNameHeader="max-h-[20px] hidden"
+              classNameFooter="hidden"
+              classNameContainer=" min-w-[90vw] max-w-none h-[90%]"
+              trigger={
+                <Image
+                  src={"/icons/eye.svg"}
+                  height={16}
+                  width={16}
+                  alt="eye-icon"
+                  className="cursor-pointer"
+                />
+              }
+            >
+              <OCRProjectDetail />
+            </OCRDialog>
+
             <Image
               src={"/icons/download.svg"}
               height={16}
@@ -183,23 +185,13 @@ const ProjectDetail = () => {
           </div>
           <div className="font-medium text-xs text-neutral-200 rounded-xl">
             <Image
-              src={"/icons/wait.svg"}
+              src={"/icons/success.svg"}
               alt="process"
               width={16}
               height={16}
               className="inline-block"
             />{" "}
-            Waiting for review: <span className="text-white">37 pages</span>
-          </div>
-          <div className="font-medium text-xs text-neutral-200 rounded-xl">
-            <Image
-              src={"/icons/check.svg"}
-              alt="process"
-              width={16}
-              height={16}
-              className="inline-block"
-            />{" "}
-            Verified: <span className="text-white">37 pages</span>
+            Successful: <span className="text-white">37 pages</span>
           </div>
         </div>
         <div className="absolute left-0 top-10 flex bg-white w-full rounded-xl">

@@ -11,7 +11,7 @@ export default function Home() {
       <header className="flex justify-between items-center px-10 py-6">
         <Link href={"/"} className="flex gap-2 items-center">
           <Image width={36} height={36} alt="icon" src={"/icons/icon.svg"} />
-          <div className="text-2xl font-bold">AkaOCR</div>
+          <div className="text-2xl font-bold">REDI-MIT</div>
         </Link>
         <div className="flex items-center gap-6">
           <Link href="/login">
@@ -35,7 +35,7 @@ export default function Home() {
           <span className="text-blue-400">useful data with AI-based IDP</span>
         </h1>
         <p className="text-lg text-gray-300 mt-6 max-w-2xl">
-          akaOCR helps make inefficient manual entry a thing of the past—and
+          REDI-MIT helps make inefficient manual entry a thing of the past—and
           reliable data insights a thing of the present.
         </p>
       </section>

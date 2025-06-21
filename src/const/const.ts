@@ -13,7 +13,6 @@ export interface IProjectItem {
   id: number;
   name: string;
   pageNumber: number;
-  confidenceScore: number;
   status: string;
   uploadAt: Date;
   updatedAt: Date;

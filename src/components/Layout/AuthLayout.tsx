@@ -11,8 +11,13 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
         {/* Logo */}
         <div className="text-2xl absolute top-8 left-8 font-bold text-blue-700 mb-6">
           <Link href={"/"} className="flex gap-2 items-center">
-            <Image width={36} height={36} alt="icon" src={"/icons/icon-blue.svg"} />
-            <div className="text-2xl font-bold">AkaOCR</div>
+            <Image
+              width={36}
+              height={36}
+              alt="icon"
+              src={"/icons/icon-blue.svg"}
+            />
+            <div className="text-2xl font-bold">REDI-MIT</div>
           </Link>
         </div>
 
